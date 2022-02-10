@@ -1,7 +1,9 @@
 package com.example.demo.entities;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "tb_product")
@@ -14,6 +16,10 @@ public class Product implements Serializable {
     private String description;
     private Double price;
     private String imgUrl;
+
+    @ManyToMany
+    @JoinTable(name = "tb_product_category")
+    private Set<Category> categories = new HashSet<>();
 
     public Product() {
     }

@@ -1,8 +1,10 @@
 package com.example.demo.config;
 
+import com.example.demo.entities.Category;
 import com.example.demo.entities.Order;
 import com.example.demo.entities.User;
 import com.example.demo.entities.enums.OrderStatus;
+import com.example.demo.repositories.CategoryRepository;
 import com.example.demo.repositories.OrderRepository;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ public class TestConfig implements CommandLineRunner {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
 
 
     @Override

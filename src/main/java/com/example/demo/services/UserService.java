@@ -1,6 +1,7 @@
 package com.example.demo.services;
 
 import com.example.demo.entities.User;
+import com.example.demo.exceptions.ResourceNotFindException;
 import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,7 +21,7 @@ public class UserService {
     }
     public User findById(Long id) {
         Optional<User> obj = repository.findById(id);
-        return obj.get();
+        return obj.orElseThrow(() -> new ResourceNotFindException(id));
 
     }
 
@@ -41,4 +42,6 @@ public class UserService {
         entity.setEmail(obj.getEmail());
         entity.setPhone(obj.getPhone());
     }
+
+
 }
